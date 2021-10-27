@@ -17,13 +17,13 @@ const Index: React.FC = () => {
   const [seek, setSeek] = useState(0);
   const [isLoaded, setLoaded] = useState(false);
 
-  let player = useRef(null);
+  let player = useRef<ReactHowler>(null);
 
   useEffect(() => {
     let interval = null;
     if (isPlaying) {
       interval = setInterval(() => {
-        setSeek(player.seek());
+        setSeek(player.current.seek());
       }, 100);
     } else if (!isPlaying && seek !== 0) {
       clearInterval(interval);
@@ -39,13 +39,13 @@ const Index: React.FC = () => {
   function handleOnEnd() {
     console.log('onEnd')
     if(isPlaying) {
-      tooglePlaying()
+      togglePlaying(!isPlaying)
     }
   }
   function handleOnLoad() {
     console.log('onLoad')
     if(duration === 0) {
-      setDuration(player.duration())
+      setDuration(player.current.duration())
     }
     if (!isLoaded) {
       setLoaded(true)
@@ -71,9 +71,9 @@ const Index: React.FC = () => {
         src={musicFile}
         playing={isPlaying}
         onPause={() => handlePause()}
-        onEnd={() => console.log('end')}
+        onEnd={() => handleOnEnd()}
         onLoad={() => handleOnLoad()}
-        ref={(ref) => (player = ref)}
+        ref={(ref) => (player.current = ref)}
       />
     </Container>)
 }
