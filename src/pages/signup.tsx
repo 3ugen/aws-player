@@ -13,7 +13,7 @@ import { Auth } from 'aws-amplify';
 
 const SignUp: React.FC = () => {
 
-  async function signUp(username, password, email) {
+  async function signUp(username, password, email, nickname) {
     try {
       console.log(username + password + email)
       const {user} = await Auth.signUp({
@@ -21,6 +21,7 @@ const SignUp: React.FC = () => {
         password,
         attributes: {
           email,          // optional
+          nickname,
           // other custom attributes
         }
       });
@@ -38,8 +39,9 @@ const SignUp: React.FC = () => {
       username: data.get('username'),
       email: data.get('email'),
       password: data.get('password'),
+      nickname: data.get('nickname'),
     });
-    signUp(data.get('username'), data.get('password'), data.get('email')).then(r => console.log('result: ' + r));
+    signUp(data.get('username'), data.get('password'), data.get('email'), data.get('nickname')).then(r => console.log('result: ' + r));
   };
   return (
     <Box
@@ -66,6 +68,16 @@ const SignUp: React.FC = () => {
               label="User Name"
               name="username"
               autoComplete="user-name"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              fullWidth
+              id="nickname"
+              label="Nick Name"
+              name="nickname"
+              autoComplete="nick-name"
             />
           </Grid>
           <Grid item xs={12}>
