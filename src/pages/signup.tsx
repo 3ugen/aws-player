@@ -38,7 +38,7 @@ const SignUp: React.FC = () => {
       email: data.get('email'),
       password: data.get('password'),
     });
-    signUp(data.get('username'), data.get('email'), data.get('password')).then(r => console.log('result: ' + r));
+    signUp(data.get('username'), data.get('password'), data.get('email')).then(r => console.log('result: ' + r));
   };
   return (
     <Box

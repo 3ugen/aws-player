@@ -10,12 +10,13 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <title>My page title</title>
+          {/*<title>My page title</title>*/}
           <meta name="theme-color" content={theme.palette.primary.main}/>
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
+          <title>123</title>
         </Head>
         <body>
         <Main/>
