@@ -6,8 +6,9 @@ import IconButton from '@mui/material/IconButton'
 import Home from '@mui/icons-material/Home'
 import MuiNextLink from '@components/MuiNextLink'
 import {styled} from "@mui/material/styles";
+import {Login} from "@mui/icons-material";
 
-const Offset = styled('div')(({ theme }) => theme.mixins.toolbar)
+const Offset = styled('div')(({theme}) => theme.mixins.toolbar)
 
 export const navLinks = [
   {title: `home`, path: `/`},
@@ -32,10 +33,13 @@ const Header: React.FC = () =>
               />
             </MuiNextLink>
           </IconButton>
+          <IconButton edge='end' aria-label='login'>
+            <Login/>
+          </IconButton>
         </Container>
       </Toolbar>
     </AppBar>
-    <Offset />
+    <Offset/>
   </>
 
 export default Header
