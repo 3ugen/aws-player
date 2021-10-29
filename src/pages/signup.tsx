@@ -15,6 +15,7 @@ const SignUp: React.FC = () => {
 
   async function signUp(username, password, email) {
     try {
+      console.log(username + password + email)
       const {user} = await Auth.signUp({
         username,
         password,
