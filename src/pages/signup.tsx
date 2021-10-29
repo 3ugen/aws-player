@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import {Auth} from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 
 const SignUp: React.FC = () => {
 

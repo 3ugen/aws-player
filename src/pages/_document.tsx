@@ -3,7 +3,6 @@ import Document, {Head, Html, Main, NextScript} from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import theme from '@components/theme';
 import createEmotionCache from '@components/createEmotionCache';
-import { Title } from '@mui/icons-material';
 
 export default class MyDocument extends Document {
   render() {
@@ -11,7 +10,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <Title>Player AWS</Title>
+          <title>My page title</title>
           <meta name="theme-color" content={theme.palette.primary.main}/>
           <link
             rel="stylesheet"
